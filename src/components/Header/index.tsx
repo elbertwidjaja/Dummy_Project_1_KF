@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../logoKf.png";
 import styles from "./styles.module.scss";
 
@@ -11,16 +12,16 @@ function Header() {
         <nav className={styles.nav}>
           <ul>
             <li>
-              <a href="#">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <a href="#">About</a>
             </li>
             <li>
-              <a href="#">Services</a>
+              <Link to="/shopping">Shopping</Link>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <Link to="/contact-us">Contact</Link>
             </li>
           </ul>
         </nav>

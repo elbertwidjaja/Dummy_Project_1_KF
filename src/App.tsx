@@ -1,17 +1,17 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Payment from "./pages/payment";
-import Product from "./pages/product";
-import CheckoutForm from "./components/CheckoutForm";
+
 import Shopping from "./pages/shopping/Shopping";
+import Contactus from "./pages/contactUs";
+import Home from "./pages/home";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Shopping />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/contact-us" element={<CheckoutForm />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/shopping" element={<Shopping />} />
+        <Route path="/contact-us" element={<Contactus />} />
       </Routes>
     </div>
   );

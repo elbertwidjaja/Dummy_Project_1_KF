@@ -1,14 +1,11 @@
 import { useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
 
-import { Link } from "react-router-dom";
-
 function CheckoutForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    clearErrors,
   } = useForm({
     defaultValues: {
       firstName: "",
@@ -80,7 +77,6 @@ function CheckoutForm() {
         </div>
         <input type="submit" />
       </form>
-      <Link to="/">Home</Link>
     </div>
   );
 }
