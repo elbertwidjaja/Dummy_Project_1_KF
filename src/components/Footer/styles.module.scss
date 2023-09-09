@@ -1,0 +1,22 @@
+.footer_container {
+  //   display: flex;
+  color: white;
+}
+.footer_info_container {
+  display: flex;
+  background-color: #1a1110;
+  padding: 0 1.8rem 0 1.8rem;
+  gap: 5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.footer_info {
+  display: flex;
+  flex-direction: column;
+}
+.company_footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  padding: 1rem 1.8rem 1rem 1.8rem;
+}

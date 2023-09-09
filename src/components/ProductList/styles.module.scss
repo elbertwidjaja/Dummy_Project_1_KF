@@ -1,0 +1,38 @@
+.card_list {
+  display: flex;
+  border-radius: 4px;
+  padding: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .card {
+    width: 15rem;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .product_image {
+    max-width: 100%;
+    max-height: 12.5rem;
+    height: auto;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+  }
+}

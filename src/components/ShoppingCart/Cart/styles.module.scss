@@ -1,0 +1,29 @@
+.cart {
+  width: 20rem;
+  height: auto;
+  background-color: #fff;
+  box-shadow: -10px 5px 15px #a9a9a9;
+  // overflow: scroll; //this is for if there's many item
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  flex-direction: column;
+  top: 72px;
+  right: 0;
+}
+
+.cart_visible {
+  z-index: 1;
+  animation: masuk-pak 1.5s;
+}
+
+@keyframes masuk-pak {
+  0% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
