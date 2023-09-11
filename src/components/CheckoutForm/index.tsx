@@ -47,6 +47,11 @@ function CheckoutForm() {
                 pattern: /^(0|[1-9]\d*)(\.\d+)?$/,
               })}
             />
+            <div>
+              {errors.phoneNumber?.type === "required" && (
+                <span>this need to be fill</span>
+              )}
+            </div>
           </div>
         </div>
         <div className={styles.row}>
@@ -59,11 +64,6 @@ function CheckoutForm() {
               })}
             />
           </div>
-        </div>
-        <div>
-          {errors.phoneNumber?.type === "required" && (
-            <span>this need to be fill</span>
-          )}
         </div>
         <div>
           {errors.phoneNumber?.type === "maxLength" && (

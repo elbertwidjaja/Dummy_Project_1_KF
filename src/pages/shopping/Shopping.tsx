@@ -31,7 +31,7 @@ function Shopping() {
       )}
       <ShoppingCart toggleCart={toggleCart} />
       <div className={styles.card_container}>
-        {productList.map((item) => (
+        {productList.map((item: any) => (
           <ProductCard onAddCart={onAddCart} item={item} />
         ))}
       </div>

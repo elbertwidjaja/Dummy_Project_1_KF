@@ -1,0 +1,21 @@
+.swiper {
+  width: 100%;
+}
+
+.swiper_slide {
+  background-position: center;
+  background-size: cover;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.images {
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+.swiper_container {
+  height: auto;
+}

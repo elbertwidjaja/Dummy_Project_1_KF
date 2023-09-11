@@ -1,1 +1,3 @@
-export type ShoppingTypes = {};
+export type ShoppingTypes = {
+  item: any;
+};
