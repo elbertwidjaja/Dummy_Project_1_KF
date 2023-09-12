@@ -8,15 +8,21 @@ import useCart from "../../hooks/useCart";
 import { useState } from "react";
 import Cart from "../../components/ShoppingCart/Cart";
 
-const url = "https://fakestoreapi.com/products?limit=10";
+const url = "https://fakestoreapi.com/products?limit=25";
 
 function Shopping() {
-  const { data: productList } = useFetch({ url, initialData: [] });
+  const { loading, data: productList } = useFetch({
+    url,
+    initialData: [],
+  });
   const { onAddCart, onUpdateCart, cart } = useCart();
   const [cartVisible, setCartVisible] = useState(false);
 
   const toggleCart = () => {
     setCartVisible(!cartVisible);
+  };
+  const isLoading = (load: boolean) => {
+    return load ? styles.loader : styles.card_container;
   };
   return (
     <div>
@@ -30,7 +36,7 @@ function Shopping() {
         />
       )}
       <ShoppingCart toggleCart={toggleCart} />
-      <div className={styles.card_container}>
+      <div className={isLoading(loading)}>
         {productList.map((item: any) => (
           <ProductCard onAddCart={onAddCart} item={item} />
         ))}

@@ -1,14 +1,13 @@
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { useDarkTheme } from "../../context/useTheme";
+import styles from "./styles.module.scss";
+// import { useDarkTheme } from "../../context/useTheme";
 
 function Home() {
-  const { darkTheme, toggleDarkTheme } = useDarkTheme();
+  // const { darkTheme, toggleDarkTheme } = useDarkTheme();
 
   return (
-    <div>
-      <button onClick={toggleDarkTheme}>Toggle Dark Theme</button>
-      <p>{darkTheme ? "Dark Theme Enabled" : "Light Theme Enabled"}</p>
+    <div className={styles.home_container}>
       <Header />
       <Footer />
     </div>
