@@ -7,13 +7,11 @@ import {
   EffectCoverflow,
 } from "swiper/modules";
 import styles from "./styles.module.scss";
-// Import Swiper styles
 import "swiper/css/bundle";
 
-function Carousel() {
+const Carousel: React.FC = () => {
   return (
     <div className={styles.swiper_container}>
-      {/* <p>Current slide is {swiperSlide.isActive ? "active" : "not active"}</p> */}
       <Swiper
         className={styles.swiper}
         modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
@@ -67,6 +65,6 @@ function Carousel() {
       </Swiper>
     </div>
   );
-}
+};
 
 export default Carousel;
