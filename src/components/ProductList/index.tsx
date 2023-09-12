@@ -2,7 +2,7 @@ import DefaultButton from "../button/DefaultButton";
 import styles from "./styles.module.scss";
 import { ProductListTypes } from "./types";
 
-function ProductList({ item, onAddCart }: ProductListTypes) {
+function ProductCard({ item, onAddCart }: ProductListTypes) {
   return (
     <div className={styles.card_list}>
       <div className={styles.card}>
@@ -16,4 +16,4 @@ function ProductList({ item, onAddCart }: ProductListTypes) {
   );
 }
 
-export default ProductList;
+export default ProductCard;

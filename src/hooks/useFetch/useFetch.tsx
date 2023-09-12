@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const useFetch = (url: string) => {
-  const [daftarProduk, setDaftarProduk] = useState([]);
+// Generic Type -> typescript
+const useFetch = ({ url, initialData }: { url: string; initialData: any }) => {
+  const [data, setData] = useState(initialData);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(url);
-        setDaftarProduk(response.data);
+        setData(response.data);
         setLoading(false);
       } catch (error) {
         //handle error
@@ -17,7 +19,8 @@ const useFetch = (url: string) => {
     };
     fetchData();
   }, [url]);
-  return { daftarProduk, loading };
+
+  return { data, loading };
 };
 
 // export const MyProvider: React.FC<{ children: ContextValue }> = ({

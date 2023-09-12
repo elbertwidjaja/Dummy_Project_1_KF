@@ -1,14 +1,11 @@
 import { useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
 
-import { Link } from "react-router-dom";
-
 function CheckoutForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    clearErrors,
   } = useForm({
     defaultValues: {
       firstName: "",
@@ -50,6 +47,11 @@ function CheckoutForm() {
                 pattern: /^(0|[1-9]\d*)(\.\d+)?$/,
               })}
             />
+            <div>
+              {errors.phoneNumber?.type === "required" && (
+                <span>this need to be fill</span>
+              )}
+            </div>
           </div>
         </div>
         <div className={styles.row}>
@@ -64,11 +66,6 @@ function CheckoutForm() {
           </div>
         </div>
         <div>
-          {errors.phoneNumber?.type === "required" && (
-            <span>this need to be fill</span>
-          )}
-        </div>
-        <div>
           {errors.phoneNumber?.type === "maxLength" && (
             <span>Indonesian phone number max length is 12 digit</span>
           )}
@@ -80,7 +77,6 @@ function CheckoutForm() {
         </div>
         <input type="submit" />
       </form>
-      <Link to="/">Home</Link>
     </div>
   );
 }

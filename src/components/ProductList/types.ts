@@ -3,10 +3,10 @@ export type ProductItemTypes = {
   title: string;
   price: number;
   image: string;
+  quantity: number;
 };
 
 export type ProductListTypes = {
-  // ku buat gini karena ini bakal kepake
   item: ProductItemTypes;
-  onAddCart: (item: {}) => {};
+  onAddCart: (item: ProductItemTypes) => void;
 };
