@@ -26,11 +26,7 @@ export function DarkThemeProvider({ children }: DarkThemeProviderProps) {
 
   return (
     <DarkThemeContext.Provider value={{ darkTheme, toggleDarkTheme }}>
-      <div className={themeClassName}>
-        <button onClick={toggleDarkTheme}>Toggle Dark Theme</button>
-        <p>{darkTheme ? "Dark Theme Enabled" : "Light Theme Enabled"}</p>
-        {children}
-      </div>
+      <div className={themeClassName}>{children}</div>
     </DarkThemeContext.Provider>
   );
 }
