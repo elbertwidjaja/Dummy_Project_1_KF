@@ -7,6 +7,9 @@ import styles from "./styles.module.scss";
 import useCart from "../../hooks/useCart";
 import { useState } from "react";
 import Cart from "../../components/ShoppingCart/Cart";
+import { useForm } from "react-hook-form";
+import FilteredCards from "../../components/FilteredCards";
+import useFilter from "../../hooks/useFilter";
 
 const url = "https://fakestoreapi.com/products?limit=25";
 
@@ -15,18 +18,40 @@ function Shopping() {
     url,
     initialData: [],
   });
+  const { filteredProducts, handleInputChange } = useFilter(productList);
   const { onAddCart, onUpdateCart, cart } = useCart();
   const [cartVisible, setCartVisible] = useState(false);
+
+  const { register } = useForm({
+    defaultValues: {
+      filter: "",
+    },
+  });
 
   const toggleCart = () => {
     setCartVisible(!cartVisible);
   };
+
   const isLoading = (load: boolean) => {
     return load ? styles.loader : styles.card_container;
   };
+
+  console.log(filteredProducts, "filtered product");
+
   return (
     <div>
       <Header />
+      <div className={styles.filter_container}>
+        <form>
+          <input
+            {...register("filter")}
+            onChange={handleInputChange}
+            placeholder="Search"
+          />
+        </form>
+        {filteredProducts.length > 0 &&
+          filteredProducts.map((item: any) => <FilteredCards data={item} />)}
+      </div>
       {cartVisible && (
         <Cart
           onUpdateCart={onUpdateCart}
