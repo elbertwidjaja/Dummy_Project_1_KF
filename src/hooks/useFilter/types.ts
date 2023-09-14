@@ -1,5 +1,5 @@
-export type useFilterTypes = {
-  filteredProducts: Product[];
-  handleSearch: (value: string) => void;
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
+export type ProductListTypes = {
+  title: string;
+}[];
+
+export type handleSearchparams = {};

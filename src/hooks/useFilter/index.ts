@@ -1,19 +1,21 @@
 import { useState } from "react";
-import { useFilterTypes } from "./types";
+import { ProductListTypes } from "./types";
 
-const useFilter = (productList) => {
-  const [filteredProducts, setFilteredProducts] = useState([]);
+const useFilter = (productList: ProductListTypes) => {
+  const [filteredProducts, setFilteredProducts] = useState<ProductListTypes>(
+    []
+  );
 
-  const SearchItem = (itemSearch, productArray) => {
-    return productArray.filter((items) => items.title.includes(itemSearch));
-  };
-
-  const handleSearch = (value) => {
-    const filteredItems = SearchItem(value, productList);
+  const handleSearch = (value: string) => {
+    const filteredItems = SearchItem(value);
     setFilteredProducts(filteredItems);
   };
 
-  const handleInputChange = (e) => {
+  const SearchItem = (itemSearch: string) => {
+    return productList.filter((items) => items.title.includes(itemSearch));
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     //this handle when the search input is ""
     value.trim() === "" ? setFilteredProducts([]) : handleSearch(value);

@@ -36,8 +36,6 @@ function Shopping() {
     return load ? styles.loader : styles.card_container;
   };
 
-  console.log(filteredProducts, "filtered product");
-
   return (
     <div>
       <Header />

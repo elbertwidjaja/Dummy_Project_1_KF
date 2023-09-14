@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { fakeStoreApiUrl } from "../../env";
+import { useCategoryTypes } from "./types";
 
 function useCategory() {
   const [categoryList, setCategoryList] = useState([]);
@@ -14,13 +15,13 @@ function useCategory() {
     }
   };
 
-  const fetchCategoryItem = async (selectedCategory) => {
+  const fetchCategoryItem = async (selectedCategory: useCategoryTypes) => {
     console.log(`${fakeStoreApiUrl}/category/${selectedCategory}`);
     try {
       const response = await axios.get(
         `${fakeStoreApiUrl}/category/${selectedCategory}`
       );
-
+      // setCategoryListItem(response.data);
       return response.data;
     } catch (error) {
       console.error("Error fetching item", error);
@@ -29,7 +30,7 @@ function useCategory() {
 
   useEffect(() => {
     fetchCategory();
-  }, [fakeStoreApiUrl]);
+  }, []);
 
   return {
     categoryList,
