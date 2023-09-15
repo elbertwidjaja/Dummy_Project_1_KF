@@ -6,7 +6,7 @@ const useCart = (): useCartTypes => {
   const [cart, setCart] = useState<CartTypes[]>([]);
 
   const onAddCart = (item: CartTypes) => {
-    const itemInCart = cart.find((cartItem) => cartItem["id"] === item.id);
+    const itemInCart = cart.find((cartItem) => cartItem.id === item.id);
 
     if (itemInCart) {
       const updatedCart = cart.map((cartItem) =>

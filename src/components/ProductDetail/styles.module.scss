@@ -1,0 +1,31 @@
+.product_container {
+  //   height: 100vh;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  img {
+    width: auto;
+    max-height: 18.75rem;
+  }
+  p {
+    margin-bottom: 1.25rem;
+  }
+  .product_detail {
+    max-width: 25rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    @media (max-width: 425px) {
+      max-width: 15rem;
+    }
+  }
+}
