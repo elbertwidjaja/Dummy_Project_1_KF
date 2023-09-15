@@ -7,14 +7,15 @@ function ProductCard({ item, onAddCart }: ProductListTypes) {
     <div className={styles.card_list}>
       <div className={styles.card}>
         <span>{item.id}</span>
-
         <img
           src={item.image}
           alt="Product"
           loading="lazy"
           className={styles.product_image}
         />
-        <h2 className={styles.item_title}>{item.title} </h2>
+        <div className={styles.titleContainer}>
+          <h2>{item.title} </h2>
+        </div>
         <p>${item.price} </p>
         <DefaultButton detail="Add to Cart" onClick={() => onAddCart(item)} />
       </div>
