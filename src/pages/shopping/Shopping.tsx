@@ -63,7 +63,7 @@ function Shopping() {
       <div className={isLoading(loading)}>
         {productList.map((item: any) => (
           // <Link to="/">
-          <Link to={`/product/${item.id}/${item.title}`}>
+          <Link to={`/product/${item.id}`}>
             <ProductCard onAddCart={onAddCart} item={item} />
           </Link>
         ))}

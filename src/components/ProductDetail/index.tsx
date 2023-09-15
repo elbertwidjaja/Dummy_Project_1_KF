@@ -10,30 +10,21 @@ import Cart from "../ShoppingCart/Cart";
 import DefaultButton from "../button/DefaultButton";
 import Footer from "../Footer";
 
-const url = "https://fakestoreapi.com/products?limit=25";
-
 function ProductDetail() {
+  const { productId } = useParams<useParamsTypes>();
+  const url = `https://fakestoreapi.com/products/${productId}`;
   const { data: productList } = useFetch({
     url,
     initialData: [],
   });
+  console.log(productList, "ini product list");
+
   const { onAddCart, onUpdateCart, cart } = useCart();
-  const { productId } = useParams<useParamsTypes>();
   const [cartVisible, setCartVisible] = useState(false);
 
   const toggleCart = () => {
     setCartVisible(!cartVisible);
   };
-
-  if (
-    !productList.length ||
-    Number(productId) <= 0 ||
-    Number(productId) > productList.length
-  ) {
-    return <div>Loading...</div>;
-  }
-
-  const product = productList[Number(productId) - 1];
 
   return (
     <>
@@ -48,19 +39,19 @@ function ProductDetail() {
       )}
       <ShoppingCart toggleCart={toggleCart} />
       <div className={styles.product_container}>
-        <img src={product.image} alt="Product_image" />
+        <img src={productList.image} alt={productList.title} />
         <div className={styles.product_detail}>
-          <h1>{product.title}</h1>
+          <h1>{productList.title}</h1>
           <h2>Price</h2>
           <p>
-            <b>${product.price}</b>
+            <b>${productList.price}</b>
           </p>
           <h2>Description</h2>
-          <p>{product.description} </p>
+          <p>{productList.description} </p>
           <div>
             <DefaultButton
               detail="Add to Cart!"
-              onClick={() => onAddCart(product)}
+              onClick={() => onAddCart(productList)}
             />
           </div>
         </div>
