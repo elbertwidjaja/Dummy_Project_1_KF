@@ -11,6 +11,8 @@ const useFetch = ({ url, initialData }: { url: string; initialData: any }) => {
       try {
         const response = await axios.get(url);
         setData(response.data);
+        console.log(response.data, "usefetch data");
+
         setLoading(false);
       } catch (error) {
         //handle error

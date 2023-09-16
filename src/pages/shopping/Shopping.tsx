@@ -10,6 +10,7 @@ import Cart from "../../components/ShoppingCart/Cart";
 import { useForm } from "react-hook-form";
 import FilteredCards from "../../components/FilteredCards";
 import useFilter from "../../hooks/useFilter";
+import { Link } from "react-router-dom";
 
 const url = "https://fakestoreapi.com/products?limit=25";
 
@@ -61,7 +62,10 @@ function Shopping() {
       <ShoppingCart toggleCart={toggleCart} />
       <div className={isLoading(loading)}>
         {productList.map((item: any) => (
-          <ProductCard onAddCart={onAddCart} item={item} />
+          // <Link to="/">
+          <Link to={`/product/${item.id}`}>
+            <ProductCard onAddCart={onAddCart} item={item} />
+          </Link>
         ))}
       </div>
       <Footer />
